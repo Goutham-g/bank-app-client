@@ -1,0 +1,155 @@
+<div class="row">
+  <div class="col-3" style="background-color:#5348e6 ;">
+    <div class="col-3 mt-0 w-100" style="background-color:#5348e6 ;">
+      <div style="background-color:#5348e6 ;" class="list-group border-0 fs-5 text-center w-100">
+        <button (click)="accessUser()" style="background-color:#5348e6 ;border: none;" type="button"
+          class="list-group-item text-white  " data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+            class="fa-solid fa-user d" style="color: #d2da6d ;"></i>
+          Profile</button>
+        <hr style="background-color:white ;">
+        <button (click)="checkBalance()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample" style="background-color:#5348e6 ;border: none;" type=" button"
+          class="list-group-item text-white">
+          <i class="fa-solid fa-hand-holding-dollar d" style="color: #d2da6d ;"></i> Balance
+          Enquiry
+        </button>
+        <hr style="background-color:white ;">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" type="button"
+          style="background-color:#5348e6 ;border: none;" class="list-group-item text-white d"><i
+            class="fa-solid fa-money-bill-transfer" style="color: #d2da6d ;"></i> Money
+          Transfer</button>
+        <hr style="background-color:white ;">
+        <a href="transaction" type="button" style="background-color:#5348e6 ;border: none;"
+          class="list-group-item list-group-item-action text-center text-white d">
+          <i style="color: #d2da6d ;" class="fa-solid fa-receipt pe-3"></i>Account Statement</a>
+        <hr style="background-color:white ;">
+        <button style="background-color:#5348e6 ;border: none;" type="button"
+          class="list-group-item list-group-item-action text-center text-white d" (click)="logout()">
+          <i style="color: #d2da6d ;" class="fa-solid fa-right-from-bracket pe-3"></i>Log Out</button>
+        <hr style="background-color:white ;">
+        <button style="background-color:#5348e6 ;border: none;" type="button"
+          class="list-group-item list-group-item-action text-center text-white d">
+          <i style="color: #d2da6d ;" class="fa-solid fa-user-minus pe-3"></i> Delete Account</button>
+        <hr style="background-color:white ;">
+      </div>
+
+    </div>
+
+  </div>
+  <div class="col-9 text-center mt-2   ">
+    <h2 style="color: #8a83ee ;text-transform: capitalize;">HI {{uname}} </h2>
+    <h3 style="color: #8a83ee ;" class="text-center mb-3"><strong>Happy Banking With Us!</strong>
+
+    </h3>
+
+    <p class="container ms-3 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos explicabo
+      necessitatibus,
+      dolorum
+      nam
+      fugiat
+      quisquam sed ut enim nulla dolore unde voluptatem fuga, odio esse consequatur, cum consectetur harum at!
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores ducimus alias laboriosam cupiditate,
+      deserunt
+      corrupti fuga aperiam quas omnis, minus ipsa necessitatibus repellendus dignissimos dolorem porro nobis
+      quaerat
+      asperiores labore.</p>
+
+    <img class="mt-4 mb-3" style="height:265px ;margin-left: 226px; " src="https://i.postimg.cc/nrSQhqLq/Bank-PO.png"
+      alt="">
+  </div>
+
+
+</div>
+
+<!-- ------Modal profile view---- -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body text-center">
+
+        <img class="w-50 " src="https://i.postimg.cc/JzNZbD6g/3237472.png" alt="">
+      </div>
+      <div class="p-2" style="background-color:#8a83ee ;">
+
+        <h4>User name : {{userData.uname}}</h4>
+        <hr>
+        <h4>Ac.No : {{acno}}</h4>
+        <hr>
+
+      </div>
+      <div class="text-center p-2" style="background-color:#8a83ee ;">
+        <button type="button" class="btn btn-danger w-75 " data-bs-dismiss="modal">Close</button>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Balance offcanvas -->
+
+<div style="background-color: #8a83ee ;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header text-center">
+    <h5 class="offcanvas-title " id="offcanvasExampleLabel">Balance Details</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="container mt-5">
+      <div class="ms-4">
+        <img style="width: 75%;" src="https://i.postimg.cc/6p9sy4Bx/istockphoto-1279341226-612x612-removebg-preview.png"
+          alt="" srcset="">
+      </div>
+      <div class="mt-4 ms-3 p-4">
+        <h4>Ac.no: {{acno}}</h4>
+        <h4>Balance: {{balance}}</h4>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal for money transfer -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body" style="background-color:#8a83ee ;">
+
+        <form [formGroup]="transaction" class="p-3">
+          <h2 class="text-center" style="color: antiquewhite;">Money Transfer</h2>
+
+          <div class="mt-4 mb-3">
+            <input formControlName="acno" style="color: #1c1947;" type="text" placeholder="Recepient Account Number"
+              style="outline: none;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+
+            <input formControlName="amnt" type="text" placeholder="Amount To Send" class="form-control"
+              id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+
+            <input formControlName="psw" type="password" placeholder="Password" class="form-control"
+              id="exampleInputPassword1">
+          </div>
+          <button (click)="moneyTransferr()" style="background-color: #5348e6;color: white;"
+            class="btn   p-2">Transfer</button>
+
+        </form>
+
+
+      </div>
+      <div class="modal-footer" style="background-color:#8a83ee ;">
+        <p [ngClass]="alertColour?'s1':'s2'" class=" text-center">{{alertMessage}}</p>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+      </div>
+    </div>
+  </div>
+</div>

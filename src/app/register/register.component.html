@@ -1,0 +1,60 @@
+<div class="row text-center ">
+    <div class="col-6 mt-1 p-3 mb-5 ">
+        <form [formGroup]="registerForm" id="d" style="background-color:#5348e6 ;border-radius: 9px;height: 450px;"
+            class="p-1 container w-75 text-center border">
+            <h1 class="text-center p-2" style="color: rgb(250,250,250);"> SignIn </h1>
+            <div class="p-2 mt-1">
+
+                <input formControlName="acno" type="text" placeholder="Acno" class="form-control mt-2 p-2" id="a1"
+                    name="acno" aria-describedby=" emailHelp">
+
+            </div>
+            <div *ngIf="(this.registerForm.get('acno')?.errors)  && (this.registerForm.get('acno')?.touched)">
+                <p class="text-danger">must contain numbers only.</p>
+            </div>
+            <div class="p-2 mt-1">
+
+                <input formControlName="uname" type="text" id="a2" name="uname" [placeholder]="pdata"
+                    class="form-control p-2 mt-1">
+            </div>
+
+            <div *ngIf="(this.registerForm.get('uname')?.errors)  && (this.registerForm.get('uname')?.touched)">
+                <p class="text-danger">must contain charecters only.</p>
+            </div>
+
+            <div class="p-2 mt-1">
+
+                <input formControlName="psw" type="password" id="a3" name="psw" placeholder="Password"
+                    class="form-control p-2 mt-1">
+            </div>
+
+            <div *ngIf="(this.registerForm.get('psw')?.errors)  && (this.registerForm.get('psw')?.touched)">
+                <p class="text-danger">must contain numbers and charecters  only.</p>
+            </div>
+
+            <div class="p-2 mt-1">
+
+                <input formControlName="cpsw" type="password" id="a4" name="cpsw" placeholder="Confirm password"
+                    class="form-control p-2 mt-1">
+            </div>
+
+            <div *ngIf="pswCheck">
+                <h5 class="text-danger"> Password doesnt match</h5>
+            </div>
+
+            <button (click)="register()" type="submit" class="btn btn-outline-secondary mt-2 p-2">Register</button>
+            <p class="mt-2" style="color: rgb(250,250,250) ;">
+                Already have account?
+                <a style="text-decoration: none; color: white;" routerLink=""><strong>Login.</strong>
+
+                </a>
+            </p>
+        </form>
+
+    </div>
+    <div class=" col-6 bdy" style="margin-top:120px ; ">
+        <img id="d" style="height: 250px;"
+            src="https://i.postimg.cc/mZN3H7QZ/online-payment-concept-mobile-banking-concept-illustration-of-people-using-smartphone-free-vector.jpg"
+            alt="" srcset="">
+    </div>
+</div>

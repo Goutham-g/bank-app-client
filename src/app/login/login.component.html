@@ -1,0 +1,41 @@
+<div class="row text-center ">
+    <div class="col-6 mt-1 p-2">
+        <h2 style="color:blue ;">{{data}}</h2>
+        <form [formGroup]="loginForm" id="d" style="background-color:#5348e6 ;border-radius: 9px;margin-top: 80px;height: 370px;"
+            class="p-2 mb-2 container w-75 text-center border">
+            <h1 class="text-center p-2" style="color: rgb(250,250,250);"> SignIn </h1>
+            <div class="p-2 mt-2">
+
+                <input formControlName="acno" type="text" name="acno" placeholder="Acno" class="form-control mt-2 p-2" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+
+            </div>
+            <div *ngIf="(this.loginForm.get('acno')?.errors) && (this.loginForm.get('acno')?.touched)">
+                <p class="text-danger">include numbers only..</p>
+            </div>
+            <div class="p-2 mt-2">
+
+                <input formControlName="psw" type="password" name="psw"  placeholder="Enter password" class="form-control p-2 mt-2"
+                    id="exampleInputPassword1">
+            </div>
+            <div *ngIf="(this.loginForm.get('psw')?.errors) && (this.loginForm.get('psw')?.touched)">
+                <p class="text-danger">include numbers and alphabets only..</p>
+            </div>
+
+            <button (click)="login()" type="submit" class="btn btn-outline-secondary mt-4 p-2">Login</button>
+            <p class="mt-2" style="color: rgb(250,250,250) ;">
+                dont have account?
+                <a style="text-decoration: none; color: white;" routerLink="register"><strong>Create
+                        account.</strong>
+
+                </a>
+            </p>
+        </form>
+
+    </div>
+    <div class=" col-6 bdy" style="margin-top:180px ; ">
+        <img style="height: 250px;"
+            src="https://i.postimg.cc/N0Xcj5Qk/bank-building-with-money-tree-tiny-people-holds-gold-coins-near-government-finance-department-or-tax.jpg"
+            alt="" srcset="">
+    </div>
+</div>
